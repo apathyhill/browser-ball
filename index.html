@@ -3,6 +3,19 @@
         <script type="text/javascript">
             window.addEventListener("load", (event) => {
                 loadWindow();
+
+                window.addEventListener("resize", (event) => {
+                    
+                    // Make window resizing less choppy
+                    var _x = window.screenX;
+                    var _y = window.screenY;
+                    var _w = window.innerWidth;
+                    var _h = window.innerHeight;
+
+                    ball.x = ball.xScreen - _x;
+                    ball.y = ball.yScreen - _y;
+                    ball.style();
+                });
             });
 
             class Ball {
