@@ -9,8 +9,8 @@
                 constructor() {
                     this.x = 0;
                     this.y = 0;
-                    this.xScreen = (window.screenX - window.screen.left) + (window.innerWidth / 2);
-                    this.yScreen = (window.screenY - window.screen.top) + (window.innerHeight / 2);
+                    this.xScreen = window.screenX + (window.innerWidth / 2);
+                    this.yScreen = window.screenY + (window.innerHeight / 2);
                     this.xSpd = 0;
                     this.ySpd = 0;
                     this.div = document.createElement("div");
@@ -22,8 +22,8 @@
                 update() {
                     
                     // Get screen coordinates
-                    var _x = window.screenX - window.screen.left;
-                    var _y = window.screenY - window.screen.top;
+                    var _x = window.screenX;
+                    var _y = window.screenY;
                     var _w = window.innerWidth;
                     var _h = window.innerHeight;
 
@@ -32,7 +32,6 @@
 
                     // Collision detection for Edge Pushing
                     if (this.xScreen < _x) {
-                        console.log(this.xSpd);
                         this.xSpd = (_x - this.xScreen) / 2 - this.xSpd;
                         this.xScreen = _x;
                     }
